@@ -1,0 +1,2 @@
+start LoRaCard forward :
+sudo docker run -d -t --device=/dev/ttyACM0 cjp0/usbserial node /root/serial.js /dev/ttyACM0 serverIP

@@ -1,0 +1,18 @@
+version: "3.0"
+services:
+  hostapd:
+    image: hostapd:0.1
+    restart: always
+    privileged: true
+    network_mode: "host"
+  dnsmasq:
+    image: dnsmasq:0.1
+    restart: always
+    privileged: true
+    network_mode: "host"
+  node:
+    image: nodejs:0.1
+    restart: always
+    devices:
+      - "/dev/ttyACM0:/dev/ttyACM0"
+    command: node /root/serial.js /dev/ttyACM0 mqttServer raspberry022
